@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Junin Mobila</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: #050b1f;
+      overflow: hidden;
+      color: white;
+    }
+
+    /* Fundo animado */
+    .bolinhas {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .bolinha {
+      position: absolute;
+      bottom: -50px;
+      width: 10px;
+      height: 10px;
+      background: rgba(0, 140, 255, 0.7);
+      border-radius: 50%;
+      animation: subir linear infinite;
+    }
+
+    @keyframes subir {
+      from {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(-110vh);
+        opacity: 0;
+      }
+    }
+
+    /* Conteúdo */
+    .container {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: #4da3ff;
+    }
+
+    p {
+      margin-bottom: 25px;
+      opacity: 0.9;
+    }
+
+    .btn {
+      width: 280px;
+      padding: 15px;
+      margin: 10px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+      color: white;
+    }
+
+    .whatsapp {
+      background: #25d366;
+    }
+
+    .whatsapp:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #25d366;
+    }
+
+    .discord {
+      background: #5865F2;
+    }
+
+    .discord:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #5865F2;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Fundo -->
+  <div class="bolinhas" id="bolinhas"></div>
+
+  <!-- Conteúdo -->
+  <div class="container">
+    <h1>Junin Mobila 🖱️⌨️📲</h1>
+    <p>Entre para a comunidade e fique por dentro de tudo!</p>
+
+    <button class="btn whatsapp"
+      onclick="window.open('https://wa.me/556596689840?text=Ol%C3%A1%20eu%20tenho%20interesse%20de%20fazer%20parte%20da%20comunidade')">
+      Participar da Comunidade
+    </button>
+
+    <button class="btn discord"
+      onclick="window.open('https://discord.gg/4Cpm5ydgX')">
+      Entrar no Discord do Junin Mobila
+    </button>
+  </div>
+
+  <script>
+    const fundo = document.getElementById("bolinhas");
+
+    for (let i = 0; i < 60; i++) {
+      const b = document.createElement("div");
+      b.className = "bolinha";
+      b.style.left = Math.random() * 100 + "vw";
+      b.style.width = b.style.height = Math.random() * 8 + 6 + "px";
+      b.style.animationDuration = Math.random() * 5 + 4 + "s";
+      b.style.animationDelay = Math.random() * 5 + "s";
+      fundo.appendChild(b);
+    }
+  </script>
+
+</body>
+  </html>
